@@ -6,6 +6,8 @@
     "@reduxjs/toolkit": "^2.5.1",
     "axios": "^1.7.9",
     "cra-template": "1.2.0",
+    "font-awesome": "^4.7.0",
+    "nth-check": "^2.1.1",
     "posthog-js": "^1.215.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -14,8 +16,10 @@
     "react-scripts": "^5.0.1",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^5.0.1",
+    "sass": "^1.84.0",
     "stripe": "^17.6.0",
-    "styled-components": "^6.1.14"
+    "styled-components": "^6.1.14",
+    "svgo": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,5 +44,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^4.0.4"
   }
 }
