@@ -6,13 +6,10 @@ import "../styles/_home.scss";
 
 const Checkout = () => {
   const [variant, setVariant] = useState("A");
-
   useEffect(() => {
-    // Hämta variant från PostHog Feature Flags
-    const expVariant = posthog.getFeatureFlag("checkout-process-test") || "A";
+    const expVariant = posthog.useFeatureFlagVariantKey("checkout-process-test") || "A";
     setVariant(expVariant);
 
-    // Spåra vilken variant som visas
     posthog.capture("checkout_variant_seen", { variant: expVariant });
   }, []);
 
