@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
-import posthog from "posthog-js";
+import React from "react";
+import { useFeatureFlagVariantKey } from "posthog-js/react";
 import OneStepCheckout from "../components/OneStepCheckout";
 import MultiStepCheckout from "../components/MultiStepCheckout";
 import "../styles/_home.scss";
 
 const Checkout = () => {
-  const [variant, setVariant] = useState("A");
-  useEffect(() => {
-    const expVariant = posthog.getFeatureFlag("checkout-process-test") || "A";
-    setVariant(expVariant);
-
-    posthog.capture("checkout_variant_seen", { variant: expVariant });
-  }, []);
+  // Hämta varianten från PostHog Feature Flag
+  const variant = useFeatureFlagVariantKey("checkout-process-test") || "A";
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
       <h1 className="text-3xl font-bold mb-4">Checkout</h1>
-      {variant === "A" ? <OneStepCheckout /> : <MultiStepCheckout />}
+      
+      {/* Rendera rätt checkout-process baserat på PostHog-varianten */}
+      {variant === "B" ? <MultiStepCheckout /> : <OneStepCheckout />}
     </div>
   );
 };
