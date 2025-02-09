@@ -1,22 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
-// Import PostHog and PostHogProvider
-import { PostHogProvider } from 'posthog-js/react';
+// Importera PostHog och PostHogProvider
+import posthog from "posthog-js";
+import { PostHogProvider } from "posthog-js/react";
 
-// Define your PostHog options
-const options = {
-  api_host: process.env.REACT_APP_PUBLIC_POSTHOG_HOST,
-};
+// Initiera PostHog direkt i index.jsx
+posthog.init("phc_cFOE6ty8yZFYjs99HeTqcdtqjUaSYITLhf2jt3Knb0k", {
+  api_host: "https://eu.i.posthog.com",
+  persistence: "localStorage",
+});
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Skapa root och rendera appen med PostHogProvider
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <PostHogProvider
-      apiKey={process.env.REACT_APP_PUBLIC_POSTHOG_KEY}
-      options={options}
-    >
+    <PostHogProvider client={posthog}>
       <App />
     </PostHogProvider>
   </React.StrictMode>
