@@ -7,7 +7,7 @@ import "../styles/_home.scss";
 const Checkout = () => {
   const [variant, setVariant] = useState("A");
   useEffect(() => {
-    const expVariant = posthog.useFeatureFlagVariantKey("checkout-process-test") || "A";
+    const expVariant = posthog.getFeatureFlag("checkout-process-test") || "A";
     setVariant(expVariant);
 
     posthog.capture("checkout_variant_seen", { variant: expVariant });
