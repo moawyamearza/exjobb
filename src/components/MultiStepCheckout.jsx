@@ -27,7 +27,7 @@ const MultiStepCheckout = () => {
     <div className="bg-white p-6 rounded-lg shadow-lg w-96">
       {step === 1 && (
         <div>
-          <h2 className="text-xl font-bold mb-4">Step 1: Contact Information</h2>
+          <h2 className="text-xl font-bold mb-4">Step 1: Contact Information VB</h2>
           <input type="text" name="name" placeholder="Full Name" onChange={handleChange} className="input-field" />
           <input type="email" name="email" placeholder="Email" onChange={handleChange} className="input-field" />
           <button onClick={nextStep} className="btn-primary">Next</button>
@@ -53,6 +53,7 @@ const MultiStepCheckout = () => {
           </select>
           <button onClick={prevStep} className="btn-secondary">Back</button>
           <button onClick={handleCheckout} className="btn-primary">Place Order</button>
+          
         </div>
       )}
     </div>

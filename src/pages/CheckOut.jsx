@@ -5,7 +5,6 @@ import MultiStepCheckout from "../components/MultiStepCheckout";
 import "../styles/_home.scss";
 
 const Checkout = () => {
-  // Hämta varianten från PostHog Feature Flag
   const variant = useFeatureFlagVariantKey("checkout-process-test") || "A";
 
   return (
