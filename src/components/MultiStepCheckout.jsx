@@ -19,7 +19,7 @@ const MultiStepCheckout = () => {
   const prevStep = () => setStep(step - 1);
 
   const handleCheckout = () => {
-    posthog.capture("checkout_completed", { variant: "B" });
+    posthog.capture("user_completed_checkout", { variant: "B" });
     alert("Order placed successfully!");
   };
 
