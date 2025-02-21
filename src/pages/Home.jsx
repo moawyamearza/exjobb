@@ -14,9 +14,10 @@ const Home = () => {
       <header className="header">
         <h1 className="title">ShopXpress</h1>
         <Link to="/checkout">
-        <button className="checkout-button">
-            <i className="fa fa-shopping-cart"></i> 
-          </button>        </Link>
+          <button className="checkout-button">
+              <i className="fa fa-shopping-cart"></i> 
+          </button>
+        </Link>
       </header>
 
       <section className="products">

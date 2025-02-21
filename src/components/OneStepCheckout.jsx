@@ -15,7 +15,7 @@ const OneStepCheckout = () => {
   };
 
   const handleCheckout = () => {
-    posthog.capture("checkout_completed", { variant: "A" });
+    posthog.capture("user_completed_checkout", { variant: "test" });
     alert("Order placed successfully!");
   };
 
