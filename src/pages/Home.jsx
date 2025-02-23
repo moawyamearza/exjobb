@@ -1,47 +1,87 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useCart } from "../context/CartContext";
 import "../styles/_home.scss";
-import "font-awesome/css/font-awesome.min.css"; 
+import "font-awesome/css/font-awesome.min.css";
+import { Link } from "react-router-dom";
+import products from "../services/products"; 
 
 const Home = () => {
-  const products = [
-    { id: 1, name: "Product 1", description: "High quality product", price: "$19.99" },
-    { id: 2, name: "Product 2", description: "Best value for money", price: "$29.99" },
-    { id: 3, name: "Product 3", description: "Limited edition item", price: "$39.99" },
-  ];
+  const { cart, addToCart, removeFromCart ,totalPrice } = useCart();
+  const [cartOpen, setCartOpen] = useState(false);
 
+  const toggleCart = () => setCartOpen(!cartOpen);
+
+  
   return (
     <div className="home-container">
+      {/* HEADER */}
       <header className="header">
         <h1 className="title">ShopXpress</h1>
-        <Link to="/checkout">
-          <button className="checkout-button">
-              <i className="fa fa-shopping-cart"></i> 
-          </button>
-        </Link>
+        <button className="checkout-button" onClick={toggleCart}>
+          <i className="fa fa-shopping-cart"></i> 
+          <span className="cart-count">{cart.length}</span>
+        </button>
       </header>
 
-      <section className="products">
+    {/* PRODUCTS SECTION */}
+    <section className="products">
         {products.map((product) => (
           <div key={product.id} className="product-card">
+            <img src={product.image} alt={product.name} className="product-image" /> {/* ✅ Display image */}
             <h2 className="product-title">{product.name}</h2>
             <p className="product-description">{product.description}</p>
             <p className="product-price">{product.price}</p>
-            <Link to="/checkout">
-              <button className="product-button">Add to Cart</button>
-            </Link>
+            <button 
+              className="product-button"
+              onClick={() => addToCart(product)}
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
       </section>
 
-      <footer className="footer">
-        <div className="container">
-          <p className="footer-text">
-            &copy; {new Date().getFullYear()} My Webshop. All Rights Reserved. | Built for{" "}
-            <a href="https://www.bth.se/en/" target="_blank" rel="noopener noreferrer">
-              BTH
-            </a>
-          </p>
+      {/* CART SIDEBAR */}
+      {cartOpen && (
+        <div className="cart-sidebar">
+          <h2>Shopping Cart</h2>
+          {cart.length === 0 ? (
+            <p>Your cart is empty.</p>
+          ) : (
+            <ul>
+              {cart.map((item) => (
+                <li key={item.id} className="cart-item">
+                  <span>{item.name} - {item.price}</span>
+                  <div className="quantity-controls">
+                    <button 
+                      className="quantity-btn" 
+                      onClick={() => removeFromCart(item.id)}
+                    > - </button>
+                    <span>{item.quantity}</span>
+                    <button 
+                      className="quantity-btn" 
+                      onClick={() => addToCart(item)}
+                    > + </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+          <h3>Total: ${totalPrice.toFixed(2)}</h3>
+          <button onClick={toggleCart} className="close-cart">Close</button>
+          <Link to="/checkout">
+            <button className="close-cart">Check out</button>
+          </Link>
         </div>
+      )}
+
+
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <p className="footer-text">
+          &copy; {new Date().getFullYear()} ShopXpress. All Rights Reserved. 
+        </p>
       </footer>
     </div>
   );
