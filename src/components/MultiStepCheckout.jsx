@@ -44,9 +44,15 @@ const MultiStepCheckout = () => {
 
   const handleCheckout = () => {
     posthog.capture("user_completed_checkout", { variant: "control" });
-    alert("Order placed successfully!");
+    window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
   };
-
+  const handleCancel = () => {
+    const confirmCancel = window.confirm("Are you sure you want to cancel?");
+    if (confirmCancel) {
+      window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
+    }
+  };
+  
   return (
    
     <div className="checkout-container">
@@ -201,6 +207,7 @@ const MultiStepCheckout = () => {
           <button onClick={handleCheckout} className="product-button">Place Order</button>
         </div></section>
       )}
+      <button onClick={handleCancel} className="product-button">Cancel order</button>
     </div>
     
   );

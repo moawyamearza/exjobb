@@ -28,7 +28,14 @@ const OneStepCheckout = () => {
 
   const handleCheckout = () => {
     posthog.capture("user_completed_checkout", { variant: "test" });
-    alert("Order placed successfully!");
+    window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
+  };
+
+  const handleCancel = () => {
+    const confirmCancel = window.confirm("Are you sure you want to cancel?");
+    if (confirmCancel) {
+      window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
+    }
   };
 
   return (
@@ -118,8 +125,11 @@ const OneStepCheckout = () => {
           </div>
 
           <button onClick={handleCheckout} className="step-button">Place Order</button>
+          <button onClick={handleCancel} className="step-button">Cancel Order</button>
         </div>
       </section>
+      
+
     </div>
   );
 };

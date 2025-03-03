@@ -40,6 +40,7 @@
     text-align: center;
     transition: transform 0.3s ease-in-out;
     width: 600px;
+    
   
     &:hover {
       transform: translateY(-10px);
@@ -72,6 +73,7 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease-in-out;
+      margin: 10px;
   
       &:hover {
         background-color: #319795;

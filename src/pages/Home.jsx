@@ -69,7 +69,7 @@ const Home = () => {
           )}
           <h3>Total: ${totalPrice.toFixed(2)}</h3>
           <button onClick={toggleCart} className="close-cart">Close</button>
-          <Link to="/m">
+          <Link to="/checkout">
             <button className="close-cart">Check out</button>
           </Link>
         </div>
