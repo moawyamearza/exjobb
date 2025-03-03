@@ -19,7 +19,7 @@ const Home = () => {
         <h1 className="title">ShopXpress</h1>
         <button className="checkout-button" onClick={toggleCart}>
           <i className="fa fa-shopping-cart"></i> 
-          <span className="cart-count">{cart.length}</span>
+          <span className="cart-count">{cart.reduce((total, item) => total + item.quantity, 0)}</span>
         </button>
       </header>
 
@@ -69,7 +69,7 @@ const Home = () => {
           )}
           <h3>Total: ${totalPrice.toFixed(2)}</h3>
           <button onClick={toggleCart} className="close-cart">Close</button>
-          <Link to="/checkout">
+          <Link to="/m">
             <button className="close-cart">Check out</button>
           </Link>
         </div>

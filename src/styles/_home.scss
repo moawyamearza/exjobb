@@ -28,7 +28,7 @@
   font-size: 40px;
   font-weight: 500;
   text-align: center; 
-  color: #333;
+  color: #ffffff;
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -58,14 +58,33 @@
   height: 60px;
   width: 60px;
   margin-top: 30px;
+  position: relative;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+
   &:hover {
-    background-color: #218838;
+    background-color: #e63946; /* Mörkare röd */
+    transform: scale(1.05);
+  }
+  .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: yellow;
+    color: black;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 50%;
   }
 }
 
   .header {
     text-align: center;
     margin-bottom: 40px;
+    background-color:#2d3748  ;
   }
   
  
@@ -132,26 +151,7 @@
     justify-content: center;
   }
   
-  /* Style the checkout button */
-.checkout-button {
-  position: relative;
-  background-color: #ff6b6b;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
 
-  .cart-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: yellow;
-    color: black;
-    font-size: 12px;
-    padding: 2px 5px;
-    border-radius: 50%;
-  }
-}
 
 /* Cart sidebar styles */
 .cart-sidebar {
@@ -267,4 +267,12 @@
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 10px;
+}
+
+.step-box {
+  background: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
