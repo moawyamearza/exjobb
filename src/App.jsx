@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import { CartProvider } from "./context/CartContext";
 import CheckOut from "./pages/CheckOut";
-
+import Mu from "./pages/m";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/m" element={<Mu />} />
         </Routes>
       </Router>
     </CartProvider>

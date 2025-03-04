@@ -197,4 +197,3 @@ const MultiStepCheckout = () => {
 };
 
 export default MultiStepCheckout;
-  

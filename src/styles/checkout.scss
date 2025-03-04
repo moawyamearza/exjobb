@@ -88,6 +88,7 @@
     align-items: center; 
     justify-content: center; 
     padding-top: 220px;
+    padding-bottom: 100px;
   
   
   
@@ -188,17 +189,63 @@ body, p, button {
 .cart-total span {
   color: #e63946;
 }
+.progress-container {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  text-align: center;
+  z-index: 999;
+  margin-top:130px;
+  
+}
+
+/* 🟢 Stegtext över progress bar */
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.step-label {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #aaa;
+  position: relative;
+}
+
+/* 🟢 Markera avklarade steg i grönt */
+.step-label.completed {
+  color: #4caf50;
+}
+
+/* 🟢 Progress bar */
 .progress-bar-container {
-  width: 100%;
   background-color: #ddd;
-  height: 8px;
+  height: 10px;
   border-radius: 4px;
-  margin: 10px 0;
   overflow: hidden;
+  width: 100%;
 }
 
 .progress-bar {
   height: 100%;
-  background-color: #4caf50; // Grön färg
+  background-color: #4caf50;
   transition: width 0.5s ease-in-out;
+}
+
+/* 🟢 Anpassning för mobil */
+@media (max-width: 768px) {
+  .progress-container {
+    width: 90%;
+    top: 50px;
+    margin-top: 200px;
+  }
+
+  .step-label {
+    font-size: 10px;
+  }
 }
