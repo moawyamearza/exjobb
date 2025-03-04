@@ -65,15 +65,15 @@ const MultiStepCheckout = () => {
         {/* HEADER */}
       <header className="header">
         <h1 className="title">ShopXpress</h1>
-        
+        <div className="progress-bar-container">
+          <div className="progress-bar" style={{ width: `${getProgress()}%` }}></div>
+        </div>
         <button className="checkout-button" onClick={toggleCart}>
           <i className="fa fa-shopping-cart"></i> 
           <span className="cart-count">{cart.reduce((total, item) => total + item.quantity, 0)}</span>
           </button>
       </header>
-      <div className="progress-bar-container">
-        <div className="progress-bar" style={{ width: `${getProgress()}%` }}></div>
-      </div>
+      
         {/* CART SIDEBAR */}
       {cartOpen && (
         <div className="cart-sidebar">
