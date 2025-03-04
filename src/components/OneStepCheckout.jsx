@@ -63,7 +63,7 @@ const OneStepCheckout = () => {
                 <li key={item.id} className="cart-item">
                   <div className="item-details">
                     <span className="item-name">{item.name}</span>
-                    <span className="item-price">${item.price}</span>
+                    <span className="item-price">{item.price}</span>
                   </div>
                   <div className="quantity-controls">
                     <button className="quantity-btn minus" onClick={() => removeFromCart(item.id)}> - </button>
@@ -118,7 +118,6 @@ const OneStepCheckout = () => {
               <option value="">Select Payment Method</option>
               <option value="card">Credit Card</option>
               <option value="paypal">PayPal</option>
-              <option value="bank_transfer">Bank Transfer</option>
               <option value="apple_pay">Apple Pay</option>
               <option value="google_pay">Google Pay</option>
             </select>
