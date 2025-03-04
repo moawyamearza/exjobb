@@ -54,6 +54,30 @@ const OneStepCheckout = () => {
           </span>
         </button>
       </header>
+      {/* 🟢 CART SIDEBAR */}
+      {cartOpen && (
+        <div className="cart-sidebar">
+          <h2>Shopping Cart</h2>
+          {cart.length === 0 ? (
+            <p>Your cart is empty.</p>
+          ) : (
+            <ul>
+              {cart.map((item) => (
+                <li key={item.id} className="cart-item">
+                  <span>{item.name} - {item.price}</span>
+                  <div className="quantity-controls">
+                    <button className="quantity-btn" onClick={() => removeFromCart(item.id)}> - </button>
+                    <span>{item.quantity}</span>
+                    <button className="quantity-btn" onClick={() => addToCart(item)}> + </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+          <h3>Total: ${totalPrice.toFixed(2)}</h3>
+          <button onClick={toggleCart} className="close-cart">Close</button>
+        </div>
+      )}
 
       {/* SHOPPING CART */}
       <section className="shopping-cart-container">
@@ -128,11 +152,18 @@ const OneStepCheckout = () => {
           </div>
 
           <button onClick={handleCheckout} className="step-button">Place Order</button>
-          <button onClick={handleCancel} className="step-button">Cancel Order</button>
+          <button onClick={handleCancel} className="cancel-button">Cancel Order</button>
         </div>
       </section>
       
+      {/* FOOTER */}
+        <footer className="footer">
+       
 
+        <p className="footer-text">
+          &copy; {new Date().getFullYear()} ShopXpress. All Rights Reserved. 
+        </p>
+      </footer>
     </div>
   );
 };
