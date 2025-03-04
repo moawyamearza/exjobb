@@ -187,3 +187,17 @@ body, p, button {
 .cart-total span {
   color: #e63946;
 }
+.progress-bar-container {
+  width: 100%;
+  background-color: #ddd;
+  height: 8px;
+  border-radius: 4px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50; // Grön färg
+  transition: width 0.5s ease-in-out;
+}

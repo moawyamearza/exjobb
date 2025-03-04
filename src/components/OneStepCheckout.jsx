@@ -39,6 +39,8 @@ const OneStepCheckout = () => {
     }
     clearCart();
   };
+  
+
 
   return (
     <div className="checkout-container">

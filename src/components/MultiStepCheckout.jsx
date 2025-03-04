@@ -54,6 +54,10 @@ const MultiStepCheckout = () => {
     }
     clearCart();
   };
+  const getProgress = () => {
+    return (step / 4) * 100; // Antal steg av totalt 4
+  };
+
   
   return (
    
@@ -61,6 +65,7 @@ const MultiStepCheckout = () => {
         {/* HEADER */}
       <header className="header">
         <h1 className="title">ShopXpress</h1>
+        <div className="progress-bar" style={{ width: `${getProgress()}%` }}></div>
         <button className="checkout-button" onClick={toggleCart}>
           <i className="fa fa-shopping-cart"></i> 
           <span className="cart-count">{cart.reduce((total, item) => total + item.quantity, 0)}</span>
