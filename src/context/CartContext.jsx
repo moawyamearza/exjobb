@@ -37,13 +37,19 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const clearCart = () => {
+    setCart([]); // Tömmer state
+    localStorage.removeItem("cart"); // Tar bort från localStorage
+  };
+
+
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.quantity * parseFloat(item.price.replace("$", "")),
     0
   );
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, totalPrice }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, totalPrice ,clearCart}}>
       {children}
     </CartContext.Provider>
   );

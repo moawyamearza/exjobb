@@ -19,7 +19,7 @@ const MultiStepCheckout = () => {
     shipping: "",
     payment: "",
   });
-  const { cart, addToCart, removeFromCart ,totalPrice } = useCart();
+  const { cart, addToCart, removeFromCart ,totalPrice, clearCart } = useCart();
     const [cartOpen, setCartOpen] = useState(false);
   
     const toggleCart = () => setCartOpen(!cartOpen);
@@ -45,12 +45,14 @@ const MultiStepCheckout = () => {
   const handleCheckout = () => {
     posthog.capture("user_completed_checkout", { variant: "control" });
     window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
+    clearCart();
   };
   const handleCancel = () => {
     const confirmCancel = window.confirm("Are you sure you want to cancel?");
     if (confirmCancel) {
       window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
     }
+    clearCart();
   };
   
   return (

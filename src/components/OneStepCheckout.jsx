@@ -5,7 +5,7 @@ import "../styles/checkout.scss";
 import { useCart } from "../context/CartContext";
 
 const OneStepCheckout = () => {
-  const { cart, addToCart, removeFromCart, totalPrice } = useCart();
+  const { cart, addToCart, removeFromCart, totalPrice, clearCart} = useCart();
   const [cartOpen, setCartOpen] = useState(false);
   const toggleCart = () => setCartOpen(!cartOpen);
 
@@ -29,6 +29,7 @@ const OneStepCheckout = () => {
   const handleCheckout = () => {
     posthog.capture("user_completed_checkout", { variant: "test" });
     window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
+    clearCart();
   };
 
   const handleCancel = () => {
@@ -36,6 +37,7 @@ const OneStepCheckout = () => {
     if (confirmCancel) {
       window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
     }
+    clearCart();
   };
 
   return (
