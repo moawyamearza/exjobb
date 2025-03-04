@@ -71,7 +71,9 @@ const MultiStepCheckout = () => {
           <span className="cart-count">{cart.reduce((total, item) => total + item.quantity, 0)}</span>
           </button>
       </header>
-      <div className="progress-bar" style={{ width: `${getProgress()}%` }}></div>
+      <div className="progress-bar-container">
+        <div className="progress-bar" style={{ width: `${getProgress()}%` }}></div>
+      </div>
         {/* CART SIDEBAR */}
       {cartOpen && (
         <div className="cart-sidebar">
