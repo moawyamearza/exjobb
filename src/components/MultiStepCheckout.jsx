@@ -134,7 +134,7 @@ const MultiStepCheckout = () => {
       {step >= 1 && (
         <section className="products">
           <div className="step-card">
-            <h2 className="step-title">First Step: Contact Information</h2>
+            <h2 className="step-title">Contact Information</h2>
             <input type="text" name="firstname" placeholder="First Name" onChange={handleChange} className="input-field" value={formData.firstname} />
             <input type="text" name="lastname" placeholder="Last Name" onChange={handleChange} className="input-field" value={formData.lastname} />
             <input type="email" name="email" placeholder="Email" onChange={handleChange} className="input-field" value={formData.email} />
@@ -146,7 +146,7 @@ const MultiStepCheckout = () => {
       {step >= 2 && (
         <section className="products">
           <div className="step-card">
-            <h2 className="step-title">Second Step: Address</h2>
+            <h2 className="step-title">Address</h2>
             <input type="text" name="street" placeholder="Street" onChange={handleChange} className="input-field" value={formData.street} />
             <input type="text" name="number" placeholder="Street Number" onChange={handleChange} className="input-field" value={formData.number} />
             <input type="text" name="city" placeholder="City" onChange={handleChange} className="input-field" value={formData.city} />
@@ -158,7 +158,7 @@ const MultiStepCheckout = () => {
       {step >= 3 && (
         <section className="products">
           <div className="step-card">
-            <h2 className="step-title">Third Step: Shipping Method</h2>
+            <h2 className="step-title">Shipping Method</h2>
             <select name="shipping" onChange={handleChange} className="input-field" value={formData.shipping}>
               <option value="">Select Shipping Method</option>
               <option value="standard">Home Shipping (3-5 days)</option>
@@ -171,7 +171,7 @@ const MultiStepCheckout = () => {
       {step >= 4 && (
         <section className="products">
           <div className="step-card">
-            <h2 className="step-title">Fourth Step: Payment</h2>
+            <h2 className="step-title">Payment</h2>
             <select name="payment" onChange={handleChange} className="input-field" value={formData.payment}>
               <option value="">Select Payment Method</option>
               <option value="card">Credit Card</option>
