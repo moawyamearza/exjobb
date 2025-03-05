@@ -108,8 +108,7 @@ const OneStepCheckout = () => {
 
       {/* ONE STEP CHECKOUT FORM */}
       <section className="step-card">
-        <div className="form-container">
-         
+         <div>
 
           {/* Contact Information */}
           <div className="form-group">
