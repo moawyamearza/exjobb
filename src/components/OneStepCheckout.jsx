@@ -3,6 +3,8 @@ import posthog from "posthog-js";
 import "../styles/_home.scss";
 import "../styles/checkout.scss";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
+
 
 const OneStepCheckout = () => {
   const { cart, addToCart, removeFromCart, totalPrice, clearCart} = useCart();
@@ -46,8 +48,9 @@ const OneStepCheckout = () => {
     <div className="checkout-container">
       {/* HEADER */}
       <header className="header">
-        <h1 className="title">ShopXpress</h1>
-        <button className="checkout-button" onClick={toggleCart}>
+      <Link to="/" className="no-underline">
+          <h1 className="title">ShopXpress</h1>
+        </Link>        <button className="checkout-button" onClick={toggleCart}>
           <i className="fa fa-shopping-cart"></i>
           <span className="cart-count">
             {cart.reduce((total, item) => total + item.quantity, 0)}
@@ -152,11 +155,11 @@ const OneStepCheckout = () => {
               <option value="google_pay">Google Pay</option>
             </select>
           </div>
-
-          <div className="button-container">
-          <button onClick={handleCheckout} className="step-button">Place Order</button>
           <button onClick={handleCancel} className="cancel-button">Cancel Order</button>
-        </div>
+
+          
+          <button onClick={handleCheckout} className="step-button">Place Order</button>
+        
         </div>
       </section>
       

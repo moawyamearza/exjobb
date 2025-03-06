@@ -3,6 +3,8 @@ import posthog from "posthog-js";
 import "../styles/_home.scss";
 import "../styles/checkout.scss";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
+
 
 const steps = ["Contact", "Address", "Shipping", "Payment"];
 
@@ -56,8 +58,10 @@ const MultiStepCheckout = () => {
     <div className="checkout-container">
       {/* 🟢 HEADER */}
       <header className="header">
-        <h1 className="title">ShopXpress</h1>
-        <button className="checkout-button" onClick={toggleCart}>
+      <Link to="/" className="no-underline">
+          <h1 className="title">ShopXpress</h1>
+        </Link>       
+         <button className="checkout-button" onClick={toggleCart}>
           <i className="fa fa-shopping-cart"></i>
           <span className="cart-count">{cart.reduce((total, item) => total + item.quantity, 0)}</span>
         </button>

@@ -16,7 +16,9 @@ const Home = () => {
     <div className="home-container">
       {/* HEADER */}
       <header className="header">
-        <h1 className="title">ShopXpress</h1>
+        <Link to="/" className="no-underline">
+          <h1 className="title">ShopXpress</h1>
+        </Link>
         <button className="checkout-button" onClick={toggleCart}>
           <i className="fa fa-shopping-cart"></i> 
           <span className="cart-count">{cart.reduce((total, item) => total + item.quantity, 0)}</span>

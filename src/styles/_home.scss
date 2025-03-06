@@ -53,6 +53,18 @@
     margin: 10px auto 0;
     border-radius: 2px;
   }
+
+  .no-underline {
+    text-decoration: none;
+  }
+  
+  .no-underline:visited {
+    text-decoration: none;
+  }
+  
+  .no-underline:hover {
+    text-decoration: none;
+  }
   
 .checkout-button {
   background-color: #28a745;
@@ -159,6 +171,8 @@
 }
 
 .cancel-button {
+  width: 200px;
+
   margin-bottom: 10px; 
   margin-top: 10px;
   padding: 10px 20px;

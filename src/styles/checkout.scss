@@ -90,6 +90,7 @@ font-family: 'Lato', sans-serif;
     }
   
     .step-button {
+      width: 200px;
       background-color: #38b2ac;
       color: #fff;
       border: none;
@@ -106,12 +107,7 @@ font-family: 'Lato', sans-serif;
     }
   }
 
-  
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Avstånd mellan knapparna */
-  }
+
 
 .shopping-cart-container {
   display: flex;
