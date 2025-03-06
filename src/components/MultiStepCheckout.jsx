@@ -149,7 +149,7 @@ const MultiStepCheckout = () => {
       )}
 
       {step >= 2 && (
-        <section className="products">
+        <section className="shopping-cart-container">
           <div className="step-card">
             <h2 className="step-title">Address</h2>
             <input type="text" name="street" placeholder="Street" onChange={handleChange} className="input-field" value={formData.street} />
@@ -161,7 +161,7 @@ const MultiStepCheckout = () => {
       )}
 
       {step >= 3 && (
-        <section className="products">
+        <section className="shopping-cart-container">
           <div className="step-card">
             <h2 className="step-title">Shipping Method</h2>
             <select name="shipping" onChange={handleChange} className="input-field" value={formData.shipping}>
@@ -174,7 +174,7 @@ const MultiStepCheckout = () => {
       )}
 
       {step >= 4 && (
-        <section className="products">
+        <section className="shopping-cart-container">
           <div className="step-card">
             <h2 className="step-title">Payment</h2>
             <select name="payment" onChange={handleChange} className="input-field" value={formData.payment}>
