@@ -1,9 +1,28 @@
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  padding-top: 220px;
+  padding-bottom: 100px;
+}
+h1, h2, h3 {
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+}
+
+body, p, button {
+font-family: 'Lato', sans-serif;
+}
+
 .input-field {
+    font-family: 'Lato', sans-serif;
     width: 100%;
-    padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    padding: 15px;
+    box-sizing: border-box;
   }
   
   .btn-primary {
@@ -36,9 +55,9 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    padding: 20px;
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    justify-items: center;
     width: 600px;
     
   
@@ -82,26 +101,7 @@
   }
 
   
-  .checkout-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    padding-top: 220px;
-    padding-bottom: 100px;
   
-  
-  
-}
-h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
-
-body, p, button {
-  font-family: 'Lato', sans-serif;
-}
-
 
 .shopping-cart-container {
   display: flex;
@@ -157,7 +157,10 @@ body, p, button {
 
 .item-price {
   font-size: 14px;
-  color: #666;
+  background-color: #ff6b6b6f;
+  width: 55px;
+  border-radius: 15px;
+  text-align: center;
 }
 
 .quantity-controls {
@@ -197,7 +200,12 @@ body, p, button {
   width: 50%;
   text-align: center;
   z-index: 999;
-  margin-top:130px;
+  margin-top:80px;
+  background-color: white;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   
 }
 
@@ -206,6 +214,9 @@ body, p, button {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
+
+
+
 }
 
 .step-label {
@@ -240,28 +251,21 @@ body, p, button {
 /* 🟢 Anpassning för mobil */
 @media (max-width: 768px) {
   .progress-container {
-    width: 90%;
+    width: 95%;
     top: 50px;
-    margin-top:65px;
+    margin-top:25px;
   }
 
   .step-label {
     font-size: 10px;
   }
-  .step-card {
-    
-    width: 255px;
-  }
-  .shopping-cart {
-    width: 260px;
-    
+  .shopping-cart-container {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .checkout-container {
-     
     padding-top: 130px;
     padding-bottom: 60px;
-  
-  
-  
 }
 }

@@ -71,10 +71,11 @@ const MultiStepCheckout = () => {
               {label}
             </span>
           ))}
+          
         </div>
         <div className="progress-bar-container">
-          <div className="progress-bar" style={{ width: `${getProgress()}%` }}></div>
-        </div>
+            <div className="progress-bar" style={{ width: `${getProgress()}%` }}></div>
+          </div>
       </div>
 
       {/* 🟢 CART SIDEBAR */}
@@ -111,9 +112,13 @@ const MultiStepCheckout = () => {
                 <ul className="cart-list">
                     {cart.map((item) => (
                     <li key={item.id} className="cart-item">
+
                         <div className="item-details">
+                        <img src={item.image} alt={item.name} className="checkout-image" />{/* ✅ Display image */}
+
                         <span className="item-name">{item.name}</span>
                         <span className="item-price">{item.price}</span>
+
                         </div>
                         <div className="quantity-controls">
                         <button className="quantity-btn minus" onClick={() => removeFromCart(item.id)}> - </button>
@@ -132,7 +137,7 @@ const MultiStepCheckout = () => {
             </section>
       {/* 🟢 CHECKOUT FORM */}
       {step >= 1 && (
-        <section className="products">
+        <section className="shopping-cart-container">
           <div className="step-card">
             <h2 className="step-title">Contact Information</h2>
             <input type="text" name="firstname" placeholder="First Name" onChange={handleChange} className="input-field" value={formData.firstname} />

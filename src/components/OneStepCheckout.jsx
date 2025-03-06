@@ -90,9 +90,12 @@ const OneStepCheckout = () => {
               {cart.map((item) => (
                 <li key={item.id} className="cart-item">
                   <div className="item-details">
+                    <img src={item.image} alt={item.name} className="checkout-image" />{/* ✅ Display image */}
+
                     <span className="item-name">{item.name}</span>
                     <span className="item-price">{item.price}</span>
-                  </div>
+                    
+                    </div>
                   <div className="quantity-controls">
                     <button className="quantity-btn minus" onClick={() => removeFromCart(item.id)}> - </button>
                     <span className="item-quantity">{item.quantity}</span>
@@ -107,8 +110,8 @@ const OneStepCheckout = () => {
       </section>
 
       {/* ONE STEP CHECKOUT FORM */}
-      <section className="step-card">
-         <div>
+      <section className="shopping-cart-container">
+         <div className="step-card">
 
           {/* Contact Information */}
           <div className="form-group">
