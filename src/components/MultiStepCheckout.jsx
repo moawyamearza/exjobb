@@ -164,7 +164,7 @@ const MultiStepCheckout = () => {
         <section className="shopping-cart-container">
           <div className="step-card">
             <h2 className="step-title">Shipping Method</h2>
-            <select name="shipping" onChange={handleChange} className="input-field" value={formData.shipping}>
+            <select name="shipping" onChange={handleChange} className="select" value={formData.shipping}>
               <option value="">Select Shipping Method</option>
               <option value="standard">Home Shipping (3-5 days)</option>
               <option value="express">Bring from the warehouse in your city</option>
@@ -177,14 +177,14 @@ const MultiStepCheckout = () => {
         <section className="shopping-cart-container">
           <div className="step-card">
             <h2 className="step-title">Payment</h2>
-            <select name="payment" onChange={handleChange} className="input-field" value={formData.payment}>
+            <select name="payment" onChange={handleChange} className="select" value={formData.payment}>
               <option value="">Select Payment Method</option>
               <option value="card">Credit Card</option>
               <option value="paypal">PayPal</option>
               <option value="apple_pay">Apple Pay</option>
               <option value="google_pay">Google Pay</option>
             </select>
-            <button onClick={handleCheckout} className="product-button">Place Order</button>
+            <button onClick={handleCheckout} className="step-button">Place Order</button>
           </div>
         </section>
       )}

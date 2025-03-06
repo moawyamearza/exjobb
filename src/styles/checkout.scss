@@ -25,6 +25,15 @@ font-family: 'Lato', sans-serif;
     box-sizing: border-box;
   }
   
+.select {
+  font-family: 'Lato', sans-serif;
+  width:550px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  box-sizing: border-box;
+}
   .btn-primary {
     background-color: #007bff;
     color: white;
@@ -61,10 +70,6 @@ font-family: 'Lato', sans-serif;
     width: 600px;
     
   
-    &:hover {
-      transform: translateY(-10px);
-    }
-  
     .step-title {
       font-size: 1.5rem;
       color: #333;
@@ -93,6 +98,7 @@ font-family: 'Lato', sans-serif;
       cursor: pointer;
       transition: background-color 0.3s ease-in-out;
       margin: 10px;
+      margin-top: 20px;
   
       &:hover {
         background-color: #319795;
@@ -101,7 +107,11 @@ font-family: 'Lato', sans-serif;
   }
 
   
-  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Avstånd mellan knapparna */
+  }
 
 .shopping-cart-container {
   display: flex;
@@ -267,5 +277,9 @@ font-family: 'Lato', sans-serif;
   .checkout-container {
     padding-top: 130px;
     padding-bottom: 60px;
+}
+.select {
+  width:330px;
+  
 }
 }

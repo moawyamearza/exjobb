@@ -134,7 +134,7 @@ const OneStepCheckout = () => {
           {/* Shipping Method */}
           <div className="form-group">
             <h3>Shipping Method</h3>
-            <select name="shipping" onChange={handleChange} className="input-field" value={formData.shipping}>
+            <select name="shipping" onChange={handleChange} className="select" value={formData.shipping}>
               <option value="">Select Shipping Method</option>
               <option value="standard">Home Shipping (3-5 days)</option>
               <option value="express">Bring from the warehouse in your city</option>
@@ -144,7 +144,7 @@ const OneStepCheckout = () => {
           {/* Payment Method */}
           <div className="form-group">
             <h3>Payment Method</h3>
-            <select name="payment" onChange={handleChange} className="input-field" value={formData.payment}>
+            <select name="payment" onChange={handleChange} className="select" value={formData.payment}>
               <option value="">Select Payment Method</option>
               <option value="card">Credit Card</option>
               <option value="paypal">PayPal</option>
@@ -153,8 +153,10 @@ const OneStepCheckout = () => {
             </select>
           </div>
 
+          <div className="button-container">
           <button onClick={handleCheckout} className="step-button">Place Order</button>
           <button onClick={handleCancel} className="cancel-button">Cancel Order</button>
+        </div>
         </div>
       </section>
       
