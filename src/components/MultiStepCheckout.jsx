@@ -39,7 +39,13 @@ const MultiStepCheckout = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    posthog.capture("user_entered_details");
+    // Debounce the posthog.capture call to avoid firing too often
+    clearTimeout(handleChange.timeout);
+    handleChange.timeout = setTimeout(() => {
+      posthog.capture("user_entered_details", {
+        [e.target.name]: e.target.value
+      });
+    }, 500);
   };
 
   const handleShipping = (e) => {
