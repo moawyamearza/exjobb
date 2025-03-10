@@ -24,18 +24,15 @@ const OneStepCheckout = () => {
     payment: "",
   });
 
-  /**
-   * Handles the change event for form inputs.
-   * Updates the form data state and captures the event using PostHog.
-   *
-   * @param {Object} e - The event object.
-   * @param {Object} e.target - The target element of the event.
-   * @param {string} e.target.name - The name of the form field.
-   * @param {string} e.target.value - The value of the form field.
-   */
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    posthog.capture("user_entered_details");
+    // Debounce the posthog.capture call to avoid firing too often
+    clearTimeout(handleChange.timeout);
+    handleChange.timeout = setTimeout(() => {
+      posthog.capture("user_entered_details", {
+        [e.target.name]: e.target.value
+      });
+    }, 500);
   };
 
   const handleShipping = (e) => {
