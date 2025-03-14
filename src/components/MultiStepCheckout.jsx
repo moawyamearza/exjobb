@@ -59,13 +59,10 @@ const MultiStepCheckout = () => {
   };
 
   const handleCheckout = () => {
-<<<<<<< HEAD
     posthog.capture("user_completed_checkout", { variant: "control" });
     window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeSPC4UqkvUHPCm1WK0Ai-AsfyvM1dFuglW_q08cTQNumw4Uw/viewform?usp=preview";
-=======
     posthog.capture("checkout_completed");
     window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
->>>>>>> 954c3f176c41c9ac9070faedd119f0d1ea960ca8
     clearCart();
   };
 
