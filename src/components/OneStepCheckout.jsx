@@ -47,14 +47,14 @@ const OneStepCheckout = () => {
 
   const handleCheckout = () => {
     posthog.capture("checkout_completed");
-    window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
+    window.location.href = "https://forms.gle/dfkUkGUE3i7CLLJD9";
     clearCart();
   };
 
   const handleCancel = () => {
     const confirmCancel = window.confirm("Are you sure you want to cancel?");
     if (confirmCancel) {
-      window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
+      window.location.href = "https://forms.gle/dfkUkGUE3i7CLLJD9";
     }
     clearCart();
   };
