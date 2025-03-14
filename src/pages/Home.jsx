@@ -4,6 +4,7 @@ import "../styles/_home.scss";
 import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 import products from "../services/products"; 
+import posthog from "posthog-js";
 
 const Home = () => {
   const { cart, addToCart, removeFromCart ,totalPrice } = useCart();
@@ -72,7 +73,7 @@ const Home = () => {
           <h3>Total: ${totalPrice.toFixed(2)}</h3>
           <button onClick={toggleCart} className="close-cart">Close</button>
           <Link to="/checkout">
-            <button className="close-cart">Check out</button>
+            <button onClick={() => posthog.capture("user_started_checkout")} className="close-cart">Check out</button>
           </Link>
         </div>
       )}

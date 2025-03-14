@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
+import posthog from "posthog-js";
 
 const CartContext = createContext();
 
@@ -15,6 +16,7 @@ export const CartProvider = ({ children }) => {
   }, [cart]);
 
   const addToCart = (product) => {
+    posthog.capture("add_to_cart");
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
       if (existingItem) {

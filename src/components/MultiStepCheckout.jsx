@@ -37,11 +37,35 @@ const MultiStepCheckout = () => {
   }, [step]);
 
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Debounce the posthog.capture call to avoid firing too often
+    clearTimeout(handleChange.timeout);
+    handleChange.timeout = setTimeout(() => {
+      posthog.capture("user_entered_details", {
+        [e.target.name]: e.target.value
+      });
+    }, 500);
+  };
+
+  const handleShipping = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    posthog.capture("user_selected_shipping_method");
+  };
+
+  const handlePayment = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    posthog.capture("user_selected_payment_method");
+  };
 
   const handleCheckout = () => {
+<<<<<<< HEAD
     posthog.capture("user_completed_checkout", { variant: "control" });
     window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeSPC4UqkvUHPCm1WK0Ai-AsfyvM1dFuglW_q08cTQNumw4Uw/viewform?usp=preview";
+=======
+    posthog.capture("checkout_completed");
+    window.location.href = "https://docs.google.com/forms/d/1Tg7XHL7bpuFF-3zTjfG1-sYKUIyWUyi47iT06X4wSP0/edit?ts=67c58c23";
+>>>>>>> 954c3f176c41c9ac9070faedd119f0d1ea960ca8
     clearCart();
   };
 
@@ -168,7 +192,7 @@ const MultiStepCheckout = () => {
         <section className="shopping-cart-container">
           <div className="step-card">
             <h2 className="step-title">Shipping Method</h2>
-            <select name="shipping" onChange={handleChange} className="select" value={formData.shipping}>
+            <select name="shipping" onChange={handleShipping} className="select" value={formData.shipping}>
               <option value="">Select Shipping Method</option>
               <option value="standard">Home Shipping (3-5 days)</option>
               <option value="express">Bring from the warehouse in your city</option>
@@ -181,7 +205,7 @@ const MultiStepCheckout = () => {
         <section className="shopping-cart-container">
           <div className="step-card">
             <h2 className="step-title">Payment</h2>
-            <select name="payment" onChange={handleChange} className="select" value={formData.payment}>
+            <select name="payment" onChange={handlePayment} className="select" value={formData.payment}>
               <option value="">Select Payment Method</option>
               <option value="card">Credit Card</option>
               <option value="paypal">PayPal</option>
